@@ -1,0 +1,18 @@
+﻿@page
+@model RecipePal.Pages.Recipes.Notes.EditModel
+
+<form method="post">
+    <div class="col">
+        <div class="card text-white bg-dark">
+            <div class="card-body">
+                <label asp-for="Note.Title"></label>
+                <input asp-for="Note.Title" class="form-control"/>
+                <label asp-for="Note.Text"></label>
+                <textarea asp-for="Note.Text" class="form-control"></textarea>
+                <input hidden asp-for="Note.Id"/>
+                <input hidden asp-for="Note.RecipeId" />
+                <input type="submit" class="btn btn-outline-primary"/>
+            </div>
+        </div>
+    </div>
+</form>

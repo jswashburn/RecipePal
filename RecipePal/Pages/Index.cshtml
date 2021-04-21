@@ -1,0 +1,28 @@
+﻿@page
+@model IndexModel
+
+<div class="text-center">
+    <h1 class="display-4">Top Cookbooks</h1>
+    
+    <table class="table">
+        <thead>
+            <tr>
+                <th>@Html.DisplayNameFor(c => c.Cookbooks[0].Title)</th>
+                <th>@Html.DisplayNameFor(c => c.Cookbooks[0].User)</th>
+                <th>@Html.DisplayNameFor(c => c.Cookbooks[0].CreatedAt)</th>
+                <th>Likes/Dislikes</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var cookbook in Model.Cookbooks)
+            {
+            <tr>
+                <td><a asp-page="Cookbooks/Index" asp-route-id="@cookbook.Id">@cookbook.Title</a></td>
+                <td>@cookbook.User.Username</td>
+                <td>@cookbook.CreatedAt.ToShortDateString()</td>
+                <td>@cookbook.Likes / @cookbook.Dislikes</td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>
