@@ -30,6 +30,13 @@
         <table class="table">
             <thead>
                 <tr>
+                    <th>
+                        <a asp-page="Recipes/Create"
+                           asp-route-id="@Model.Cookbook.Id"
+                           class="btn btn-outline-success">
+                            Add recipe
+                        </a>
+                    </th>
                     <th>@Html.DisplayNameFor(m => m.Recipes.First().Title)</th>
                     <th>@Html.DisplayNameFor(m => m.Recipes.First().CreatedAt)</th>
                     <th>Likes/Dislikes</th>

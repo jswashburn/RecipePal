@@ -1,10 +1,16 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using RecipePal.Models;
+using System;
 
 namespace RecipePal.Data
 {
     public static class ModelBuilderExtensions
     {
+        static Random _rng = new Random();
+
+        static int RandLikes => _rng.Next(0, 1000);
+        static int RandDislikes => _rng.Next(0, 250);
+
         // Alter/Amend seed data here. EF will make the appropriate modifications to the DB.
         public static void Seed(this ModelBuilder modelBuilder)
         {
@@ -84,64 +90,64 @@ namespace RecipePal.Data
                     Id = 1,
                     CookbookId = 1,
                     Title = "Chicken Fried Steak",
-                    Likes = 123,
-                    Dislikes = 5
+                    Likes = RandLikes,
+                    Dislikes = RandDislikes
                 },
                 new Recipe
                 {
                     Id = 2,
                     CookbookId = 1,
                     Title = "Pulled Pork",
-                    Likes = 123,
-                    Dislikes = 5
+                    Likes = RandLikes,
+                    Dislikes = RandDislikes
                 },
                 new Recipe
                 {
                     Id = 3,
                     CookbookId = 2,
                     Title = "Christmas Cookies",
-                    Likes = 123,
-                    Dislikes = 5
+                    Likes = RandLikes,
+                    Dislikes = RandDislikes
                 },
                 new Recipe
                 {
                     Id = 4,
                     CookbookId = 2,
                     Title = "Reindeer stew",
-                    Likes = 123,
-                    Dislikes = 5
+                    Likes = RandLikes,
+                    Dislikes = RandDislikes
                 },
                 new Recipe
                 {
                     Id = 5,
                     CookbookId = 3,
                     Title = "Shrimp Gumbo",
-                    Likes = 123,
-                    Dislikes = 5
+                    Likes = RandLikes,
+                    Dislikes = RandDislikes
                 },
                 new Recipe
                 {
                     Id = 6,
                     CookbookId = 3,
                     Title = "Fried Chicken",
-                    Likes = 123,
-                    Dislikes = 5
+                    Likes = RandLikes,
+                    Dislikes = RandDislikes
                 },
                 new Recipe
                 {
                     Id = 7,
                     CookbookId = 4,
                     Title = "Health Potion",
-                    Likes = 123,
-                    Dislikes = 5
+                    Likes = RandLikes,
+                    Dislikes = RandDislikes
                 },
                 new Recipe
                 {
                     Id = 8,
                     CookbookId = 4,
                     Title = "Rat poison",
-                    Likes = 123,
-                    Dislikes = 5
+                    Likes = RandLikes,
+                    Dislikes = RandDislikes
                 });
         }
 
@@ -154,8 +160,8 @@ namespace RecipePal.Data
                     CookbookId = 1,
                     UserId = 1,
                     Text = "This is awesome!",
-                    Likes = 432,
-                    Dislikes = 2
+                    Likes = RandLikes,
+                    Dislikes = RandDislikes
                 },
                 new Comment
                 {
@@ -163,8 +169,8 @@ namespace RecipePal.Data
                     CookbookId = 2,
                     UserId = 1,
                     Text = "This is kind-of awesome!",
-                    Likes = 432,
-                    Dislikes = 2
+                    Likes = RandLikes,
+                    Dislikes = RandDislikes
                 },
                 new Comment
                 {
@@ -172,8 +178,8 @@ namespace RecipePal.Data
                     CookbookId = 1,
                     UserId = 2,
                     Text = "This is gross!!",
-                    Likes = 432,
-                    Dislikes = 2
+                    Likes = RandLikes,
+                    Dislikes = RandDislikes
                 },
                 new Comment
                 {
@@ -181,8 +187,8 @@ namespace RecipePal.Data
                     CookbookId = 2,
                     UserId = 2,
                     Text = "This is not bad",
-                    Likes = 432,
-                    Dislikes = 2
+                    Likes = RandLikes,
+                    Dislikes = RandDislikes
                 });
         }
 
@@ -195,8 +201,8 @@ namespace RecipePal.Data
                     UserId = 1,
                     Title = "Southern Favorites",
                     CuisineType = "Southern",
-                    Likes = 432,
-                    Dislikes = 2
+                    Likes = RandLikes,
+                    Dislikes = RandDislikes
                 },
                 new Cookbook
                 {
@@ -204,8 +210,8 @@ namespace RecipePal.Data
                     UserId = 1,
                     Title = "Mrs. Claus Secret Recipes",
                     CuisineType = "Christmas",
-                    Likes = 432,
-                    Dislikes = 2
+                    Likes = RandLikes,
+                    Dislikes = RandDislikes
                 },
                 new Cookbook
                 {
@@ -213,8 +219,8 @@ namespace RecipePal.Data
                     UserId = 2,
                     Title = "Cajun Creations",
                     CuisineType = "Cajun",
-                    Likes = 432,
-                    Dislikes = 2
+                    Likes = RandLikes,
+                    Dislikes = RandDislikes
                 },
                 new Cookbook
                 {
@@ -222,8 +228,8 @@ namespace RecipePal.Data
                     UserId = 2,
                     Title = "Potions and poisons",
                     CuisineType = "Fantasy",
-                    Likes = 432,
-                    Dislikes = 2
+                    Likes = RandLikes,
+                    Dislikes = RandDislikes
                 });
         }
 
