@@ -9,27 +9,27 @@ namespace RecipePal.Pages.Recipes
 {
     public class IndexModel : PageModel
     {
-        public IRepository<Recipe> RecipesRepo { get; private set; }
-        public IRepository<Note> NotesRepo { get; private set; }
+        readonly IRepository<Recipe> _recipesRepo;
+        readonly IRepository<Note> _notesRepo;
 
-        public Recipe Recipe { get; set; }
-        public IEnumerable<Note> Notes { get; set; }
+        public Recipe Recipe { get; private set; }
+        public IEnumerable<Note> Notes { get; private set; }
 
         public IndexModel(IRepository<Recipe> recipes, IRepository<Note> notes)
         {
-            RecipesRepo = recipes;
-            NotesRepo = notes;
+            _recipesRepo = recipes;
+            _notesRepo = notes;
         }
 
         public void OnGet(int id)
         {
-            Recipe = RecipesRepo.Get(id);
-            Notes = NotesRepo.Get().Where(n => n.RecipeId == Recipe.Id);
+            Recipe = _recipesRepo.Get(id);
+            Notes = _notesRepo.Get().Where(n => n.RecipeId == Recipe.Id);
         }
 
         public IActionResult OnPostDeleteNote(int id)
         {
-            Note deleted = NotesRepo.Delete(id);
+            Note deleted = _notesRepo.Delete(id);
             return RedirectToPage(new { id = deleted.RecipeId });
         }
     }

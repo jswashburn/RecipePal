@@ -1,1 +1,17 @@
-﻿<h1>Create a Cookbook!</h1>
+﻿@page
+@model CreateModel
+
+<form method="post">
+    <div class="col">
+        <div class="card text-white bg-dark">
+            <div class="card-body">
+                <label asp-for="Cookbook.Title"></label>
+                <input asp-for="Cookbook.Title" class="form-control" />
+                <label asp-for="Cookbook.CuisineType"></label>
+                <textarea asp-for="Cookbook.CuisineType" class="form-control"></textarea>
+                <input hidden asp-for="Cookbook.UserId" value="@Model.RPUser.Id" />
+                <input type="submit" class="btn btn-outline-primary" />
+            </div>
+        </div>
+    </div>
+</form>

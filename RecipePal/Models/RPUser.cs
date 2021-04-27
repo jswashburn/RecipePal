@@ -2,7 +2,7 @@
 
 namespace RecipePal.Models
 {
-    public class User : BaseEntity
+    public class RPUser : BaseEntity
     {
         public string Username { get; set; }
         public string Password { get; set; }

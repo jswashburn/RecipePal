@@ -229,15 +229,15 @@ namespace RecipePal.Data
 
         static void SeedUsers(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<User>().HasData(
-                new User
+            modelBuilder.Entity<RPUser>().HasData(
+                new RPUser
                 {
                     Id = 1,
                     Username = "John J. Jingleheimer",
                     Password = "hash",
                     Email = "jjingleheimer@northpole.com"
                 },
-                new User
+                new RPUser
                 {
                     Id = 2,
                     Username = "wwishy",

@@ -2,7 +2,7 @@
 
 namespace RecipePal.Models
 {
-    public class Cookbook : BaseEntity, ISocialElement
+    public class Cookbook : SocialElement
     {
         public int UserId { get; set; }
 
@@ -11,10 +11,6 @@ namespace RecipePal.Models
 
         public ICollection<Recipe> Recipes { get; set; }
         public ICollection<Comment> Comments { get; set; }
-        public User User { get; set; }
-
-        public int Likes { get; set; }
-
-        public int Dislikes { get; set; }
+        public RPUser User { get; set; }
     }
 }

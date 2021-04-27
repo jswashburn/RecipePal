@@ -1,0 +1,71 @@
+﻿@page
+@model EditCookbookModel
+
+<h1 class="display-4">@Model.Cookbook.Title</h1>
+
+<div class="card text-white bg-dark mb-2">
+    <div class="card-body">
+        <form method="post">
+            <input hidden asp-for="Cookbook.Id" />
+            <input hidden asp-for="Cookbook.UserId" value="@Model.RpUser.Id" />
+            <div class="form-group">
+                <label asp-for="Cookbook.Title"></label>
+                <input asp-for="Cookbook.Title" class="form-control bg-dark text-white" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Cookbook.CuisineType"></label>
+                <input asp-for="Cookbook.CuisineType" class="form-control bg-dark text-white">
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-outline-success form-control">
+                    Save changes
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="card text-white bg-dark">
+    <div class="card-body">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>@Html.DisplayNameFor(m => m.Recipes.First().Title)</th>
+                    <th>@Html.DisplayNameFor(m => m.Recipes.First().CreatedAt)</th>
+                    <th>Likes/Dislikes</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var recipe in Model.Recipes)
+                {
+                    <tr>
+                        <td>
+                            <div class="btn-group">
+                                <a asp-page="Recipes/Edit"
+                                    asp-route-id="@recipe.Id"
+                                    class="btn btn-outline-warning">
+                                    Edit
+                                </a>
+                                <form method="post" 
+                                    asp-page-handler="DeleteRecipe"
+                                    asp-route-id="@recipe.Id">
+                                    <button type="submit" class="btn btn-outline-danger">
+                                        Delete
+                                    </button>
+                                </form>
+                            </div>
+                        </td>
+                        <td>
+                            <a asp-page="../Recipes/Index" 
+                               asp-route-id="@recipe.Id">
+                            @recipe.Title
+                            </a>
+                        </td>
+                        <td>@recipe.CreatedAt.ToShortDateString()</td>
+                        <td>@recipe.Likes / @recipe.Dislikes</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

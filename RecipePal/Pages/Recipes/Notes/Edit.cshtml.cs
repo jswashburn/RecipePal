@@ -7,23 +7,23 @@ namespace RecipePal.Pages.Recipes.Notes
 {
     public class EditModel : PageModel
     {
-        public IRepository<Note> NotesRepo { get; private set; }
+        readonly IRepository<Note> _notesRepo;
 
         public Note Note { get; set; }
 
         public EditModel(IRepository<Note> notes)
         {
-            NotesRepo = notes;
+            _notesRepo = notes;
         }
 
         public void OnGet(int id)
         {
-            Note = NotesRepo.Get(id);
+            Note = _notesRepo.Get(id);
         }
 
         public IActionResult OnPost(Note note)
         {
-            Note = NotesRepo.Update(note);
+            Note = _notesRepo.Update(note);
             return RedirectToPage("../Index", new { id = Note.RecipeId });
         }
     }
