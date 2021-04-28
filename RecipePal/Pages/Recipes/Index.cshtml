@@ -5,35 +5,31 @@
 
 <a asp-page="Notes/Create"
    asp-route-recipeId="@Model.Recipe.Id"
-   class="btn btn-success">
+   class="btn btn-success rounded-pill m-1">
     Add Note
 </a>
 
-<div class="card-deck">
+<div class="card-columns">
     @foreach (var note in Model.Notes)
     {
-    <div class="col-sm-12 col-lg-4">
-        <div class="card text-white bg-dark">
-            <div class="card-body">
-                <h5 class="card-header">@note.Title</h5>
-                <p class="card-text">@note.Text</p>
-                <div class="row">
-                    <div class="col">
-                        <a asp-page="Notes/Edit"
-                           asp-route-id="@note.Id"
-                           asp-page-handler="Edit"
-                           class="btn btn-outline-warning">Edit</a>
-                    </div>
-                    <div class="col">
-                        <form asp-route-id="@note.Id"
-                              asp-page-handler="DeleteNote"
-                              method="post">
-                            <button type="submit" class="btn btn-outline-danger">
-                                Delete
-                            </button>
-                        </form>
-                    </div>
-                </div>
+    <div class="card text-white bg-dark">
+        <div class="card-body">
+            <h5 class="card-header">@note.Title</h5>
+            <p class="card-text">@note.Text</p>
+            <div class="btn-group" role="group">
+                <a asp-page="Notes/Edit"
+                    asp-route-id="@note.Id"
+                    asp-page-handler="Edit"
+                    class="btn btn-outline-warning rounded-pill m-1">
+                Edit
+                </a>
+                <form asp-route-id="@note.Id"
+                        asp-page-handler="DeleteNote"
+                        method="post">
+                    <button type="submit" class="btn btn-outline-danger rounded-pill m-1">
+                        Delete
+                    </button>
+                </form>
             </div>
         </div>
     </div>

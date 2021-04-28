@@ -17,7 +17,7 @@
                 <input asp-for="Cookbook.CuisineType" class="form-control bg-dark text-white">
             </div>
             <div class="form-group">
-                <button type="submit" class="btn btn-outline-success form-control">
+                <button type="submit" class="btn btn-outline-success form-control rounded-pill m-1">
                     Save changes
                 </button>
             </div>
@@ -31,9 +31,9 @@
             <thead>
                 <tr>
                     <th>
-                        <a asp-page="Recipes/Create"
+                        <a asp-page="../Recipes/Create"
                            asp-route-id="@Model.Cookbook.Id"
-                           class="btn btn-outline-success">
+                           class="btn btn-outline-success rounded-pill m-1">
                             Add recipe
                         </a>
                     </th>
@@ -47,16 +47,16 @@
                 {
                     <tr>
                         <td>
-                            <div class="btn-group">
+                            <div class="btn-group" role="group">
                                 <a asp-page="Recipes/Edit"
                                     asp-route-id="@recipe.Id"
-                                    class="btn btn-outline-warning">
+                                    class="btn btn-outline-warning rounded-pill m-1">
                                     Edit
                                 </a>
                                 <form method="post" 
                                     asp-page-handler="DeleteRecipe"
                                     asp-route-id="@recipe.Id">
-                                    <button type="submit" class="btn btn-outline-danger">
+                                    <button type="submit" class="btn btn-outline-danger rounded-pill m-1">
                                         Delete
                                     </button>
                                 </form>

@@ -1,4 +1,16 @@
 ﻿@page
-@model RecipePal.Pages.Recipes.CreateModel
+@model CreateModel
 
 <h1 class="text-center">Create a new recipe!</h1>
+<form method="post">
+    <div class="col">
+        <div class="card text-white bg-dark">
+            <div class="card-body">
+                <label asp-for="Recipe.Title"></label>
+                <input asp-for="Recipe.Title" class="form-control" />
+                <input hidden asp-for="Recipe.CookbookId" value="@Model.Cookbook.Id" />
+                <input type="submit" class="btn btn-outline-primary rounded-pill m-1" />
+            </div>
+        </div>
+    </div>
+</form>

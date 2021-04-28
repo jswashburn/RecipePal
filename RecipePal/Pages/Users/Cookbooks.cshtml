@@ -3,15 +3,17 @@
 
 <div class="text-center">
     <h1 class="display-4">@Model.RPUser.Username's cookbooks</h1>
-    <a asp-page="../Cookbooks/Create" 
-       asp-route-userId="@Model.RPUser.Id"
-       class="btn btn-success">
-        Add
-    </a>
+
     <table class="table">
         <thead>
             <tr>
-                <th>#</th>
+                <th>
+                    <a asp-page="../Cookbooks/Create"
+                       asp-route-userId="@Model.RPUser.Id"
+                       class="btn btn-success rounded-pill m-1">
+                        Add
+                    </a>
+                </th>
                 <th>@Html.DisplayNameFor(c => c.UserCookbooks[0].Title)</th>
                 <th>@Html.DisplayNameFor(c => c.UserCookbooks[0].User)</th>
                 <th>@Html.DisplayNameFor(c => c.UserCookbooks[0].CreatedAt)</th>
@@ -23,19 +25,21 @@
             {
                 <tr>
                     <td>
-                        <a asp-page="EditCookbook"
-                           asp-route-id="@cookbook.Id"
-                           class="btn btn-outline-warning">
-                            Edit
-                        </a>
-                        <form method="post" 
-                              asp-page-handler="DeleteCookbook"
-                              asp-route-id="@cookbook.Id">
-                            <button type="submit"
-                                    class="btn btn-outline-danger">
-                                Delete
-                            </button>
-                        </form>
+                        <div class="btn-group" role="group">
+                            <a asp-page="EditCookbook"
+                               asp-route-id="@cookbook.Id"
+                               class="btn btn-outline-warning rounded-pill m-1">
+                                Edit
+                            </a>
+                            <form method="post" 
+                                  asp-page-handler="DeleteCookbook"
+                                  asp-route-id="@cookbook.Id">
+                                <button type="submit"
+                                        class="btn btn-outline-danger rounded-pill m-1">
+                                    Delete
+                                </button>
+                            </form>
+                        </div>
                     </td>
                     <td><a asp-page="../Cookbooks/Index" asp-route-id="@cookbook.Id">@cookbook.Title</a></td>
                     <td>@cookbook.User.Username</td>
