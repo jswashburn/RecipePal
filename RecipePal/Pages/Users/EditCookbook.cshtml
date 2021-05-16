@@ -17,7 +17,7 @@
                 <input asp-for="Cookbook.CuisineType" class="form-control bg-dark text-white">
             </div>
             <div class="form-group">
-                <button type="submit" class="btn btn-outline-success form-control rounded-pill m-1">
+                <button type="submit" class="btn btn-success form-control rounded-pill m-1">
                     Save changes
                 </button>
             </div>
@@ -27,19 +27,20 @@
 
 <div class="card text-white bg-dark">
     <div class="card-body">
-        <table class="table">
+        <table class="table text-white">
             <thead>
                 <tr>
                     <th>
                         <a asp-page="../Recipes/Create"
                            asp-route-id="@Model.Cookbook.Id"
-                           class="btn btn-outline-success rounded-pill m-1">
+                           class="btn btn-success rounded-pill m-1">
                             Add recipe
                         </a>
                     </th>
                     <th>@Html.DisplayNameFor(m => m.Recipes.First().Title)</th>
                     <th>@Html.DisplayNameFor(m => m.Recipes.First().CreatedAt)</th>
-                    <th>Likes/Dislikes</th>
+                    <th>Likes</th>
+                    <th>Dislikes</th>
                 </tr>
             </thead>
             <tbody>
@@ -50,13 +51,13 @@
                             <div class="btn-group" role="group">
                                 <a asp-page="Recipes/Edit"
                                     asp-route-id="@recipe.Id"
-                                    class="btn btn-outline-warning rounded-pill m-1">
+                                    class="btn btn-warning rounded-pill m-1">
                                     Edit
                                 </a>
                                 <form method="post" 
                                     asp-page-handler="DeleteRecipe"
                                     asp-route-id="@recipe.Id">
-                                    <button type="submit" class="btn btn-outline-danger rounded-pill m-1">
+                                    <button type="submit" class="btn btn-danger rounded-pill m-1">
                                         Delete
                                     </button>
                                 </form>
@@ -69,7 +70,8 @@
                             </a>
                         </td>
                         <td>@recipe.CreatedAt.ToShortDateString()</td>
-                        <td>@recipe.Likes / @recipe.Dislikes</td>
+                        <td>@recipe.Likes</td>
+                        <td>@recipe.Dislikes</td>
                     </tr>
                 }
             </tbody>
